@@ -1,91 +1,93 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+'use client';
+import { useState } from 'react';
+import { Inter } from '@next/font/google';
+import {
+  Container,
+  Center,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Box,
+  Button,
+  Text
+} from '@chakra-ui/react';
+import Search from '@/components/search';
+import ListCheck from '@/components/listCheck';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  weight: '400',
+  style: ['normal']
+});
 
 export default function Home() {
+  const [search, setSearch] = useState<string>('');
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Container>
+      <Center height="100vh" justifyContent="center">
+        <Box>
+          <Text
+            className={inter.className}
+            fontSize="20px"
+            fontWeight="400"
+            lineHeight="24px"
+            marginBottom="35px"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            Search tab with ability to see “only selected” countries or “Clear
+            all” results
+          </Text>
+          <Card
+            width="494px"
+            height="446px"
+            border="1px solid #E1E3E6"
+            boxShadow="9px 32px 35px rgba(0, 0, 0, 0.0464653)"
+            borderRadius="14px"
+          >
+            <CardHeader paddingBottom="5px">
+              <Search bind={setSearch} />
+            </CardHeader>
+            <CardBody padding="0 20px" height="315px">
+              <Box
+                padding="10px"
+                borderTop="1px solid rgba(0, 0, 0, 0.0464653)"
+                borderBottom="1px solid rgba(0, 0, 0, 0.0464653)"
+                height="100%"
+                overflowY="auto"
+                css={{
+                  '&::-webkit-scrollbar': {
+                    width: '4px'
+                  },
+                  '&::-webkit-scrollbar-track': {
+                    width: '6px'
+                  },
+                  '&::-webkit-scrollbar-thumb': {
+                    background: 'gray',
+                    borderRadius: '24px'
+                  }
+                }}
+              >
+                <ListCheck searchInput={search} />
+              </Box>
+            </CardBody>
+            <CardFooter justifyContent="end" padding="10px 20px">
+              <hr />
+              <Button
+                type="submit"
+                colorScheme="green"
+                width="87px"
+                height="38px"
+                borderRadius="50px"
+                fontSize="16px"
+                fontWeight="400"
+                lineHeight="22px"
+              >
+                Save
+              </Button>
+            </CardFooter>
+          </Card>
+        </Box>
+      </Center>
+    </Container>
+  );
 }

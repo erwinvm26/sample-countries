@@ -1,9 +1,16 @@
-import './globals.css'
+'use client';
+import { ChakraProvider } from '@chakra-ui/react';
+import { Questrial } from '@next/font/google';
+
+const questrial = Questrial({
+  style: ['normal'],
+  weight: ['400']
+});
 
 export default function RootLayout({
-  children,
+  children
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -12,7 +19,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body className={questrial.className}>
+        <ChakraProvider>{children}</ChakraProvider>
+      </body>
     </html>
-  )
+  );
 }
