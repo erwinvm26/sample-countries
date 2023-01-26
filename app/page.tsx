@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { Inter } from '@next/font/google';
 import {
   Container,
   Center,
@@ -15,11 +14,6 @@ import {
 import Search from '@/components/search';
 import ListCheck from '@/components/listCheck';
 
-const inter = Inter({
-  weight: '400',
-  style: ['normal']
-});
-
 export default function Home() {
   const [search, setSearch] = useState<string>('');
 
@@ -27,16 +21,6 @@ export default function Home() {
     <Container>
       <Center height="100vh" justifyContent="center">
         <Box>
-          <Text
-            className={inter.className}
-            fontSize="20px"
-            fontWeight="400"
-            lineHeight="24px"
-            marginBottom="35px"
-          >
-            Search tab with ability to see “only selected” countries or “Clear
-            all” results
-          </Text>
           <Card
             width="494px"
             height="446px"
@@ -52,7 +36,7 @@ export default function Home() {
                 padding="10px"
                 borderTop="1px solid rgba(0, 0, 0, 0.0464653)"
                 borderBottom="1px solid rgba(0, 0, 0, 0.0464653)"
-                height="100%"
+                height="315px"
                 overflowY="auto"
                 css={{
                   '&::-webkit-scrollbar': {

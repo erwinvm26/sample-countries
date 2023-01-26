@@ -61,7 +61,7 @@ export default function ListCheck({ searchInput }: ListCheckProps) {
         </FormLabel>
       </FormControl>
 
-      <Stack mt={1} spacing={1}>
+      <Stack position="relative" mt={1} spacing={1}>
         {checkedItems
           .filter((item) =>
             Object.values(item)
