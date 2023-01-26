@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { Questrial } from '@next/font/google';
 
