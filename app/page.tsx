@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { Inter } from '@next/font/google';
 import {
   Container,
   Center,
@@ -14,6 +15,11 @@ import {
 import Search from '@/components/search';
 import ListCheck from '@/components/listCheck';
 
+const inter = Inter({
+  weight: ['500'],
+  style: ['normal']
+});
+
 export default function Home() {
   const [search, setSearch] = useState<string>('');
 
@@ -21,6 +27,14 @@ export default function Home() {
     <Container>
       <Center height="100vh" justifyContent="center">
         <Box>
+          <Text
+            className={inter.className}
+            marginBottom="35px"
+            fontSize="24px"
+            textAlign="center"
+          >
+            Countries
+          </Text>
           <Card
             width="494px"
             height="446px"
@@ -70,6 +84,13 @@ export default function Home() {
               </Button>
             </CardFooter>
           </Card>
+
+          <Box marginTop="1rem">
+            <Text fontWeight="600">Design Figma</Text>
+            <Button variant="link" overflow="auto" whiteSpace="pre-wrap">
+              https://www.figma.com/file/rVk2ElEs001Gv1v6d3VmSg/Sample-task?t=EL4hlW4PKn3PcWUc-0
+            </Button>
+          </Box>
         </Box>
       </Center>
     </Container>
