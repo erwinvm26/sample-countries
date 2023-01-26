@@ -10,7 +10,9 @@ import {
   CardFooter,
   Box,
   Button,
-  Text
+  Text,
+  Flex,
+  Spacer
 } from '@chakra-ui/react';
 import Search from '@/components/search';
 import ListCheck from '@/components/listCheck';
@@ -36,7 +38,7 @@ export default function Home() {
             Countries
           </Text>
           <Card
-            width="494px"
+            maxWidth="494px"
             height="446px"
             border="1px solid #E1E3E6"
             boxShadow="9px 32px 35px rgba(0, 0, 0, 0.0464653)"
@@ -68,29 +70,35 @@ export default function Home() {
                 <ListCheck searchInput={search} />
               </Box>
             </CardBody>
-            <CardFooter justifyContent="end" padding="10px 20px">
+            <CardFooter padding="10px 20px">
               <hr />
-              <Button
-                type="submit"
-                colorScheme="green"
-                width="87px"
-                height="38px"
-                borderRadius="50px"
-                fontSize="16px"
-                fontWeight="400"
-                lineHeight="22px"
-              >
-                Save
-              </Button>
+
+              <Box width="100%" display="flex" justifyContent="space-between">
+                <Button
+                  as={'a'}
+                  variant="link"
+                  href="https://www.figma.com/file/rVk2ElEs001Gv1v6d3VmSg/Sample-task?t=EL4hlW4PKn3PcWUc-0"
+                  target="_blank"
+                  overflow="auto"
+                  whiteSpace="pre-wrap"
+                >
+                  Design Figma Here
+                </Button>
+                <Button
+                  type="submit"
+                  colorScheme="green"
+                  width="87px"
+                  height="38px"
+                  borderRadius="50px"
+                  fontSize="16px"
+                  fontWeight="400"
+                  lineHeight="22px"
+                >
+                  Save
+                </Button>
+              </Box>
             </CardFooter>
           </Card>
-
-          <Box marginTop="1rem">
-            <Text fontWeight="600">Design Figma</Text>
-            <Button variant="link" overflow="auto" whiteSpace="pre-wrap">
-              https://www.figma.com/file/rVk2ElEs001Gv1v6d3VmSg/Sample-task?t=EL4hlW4PKn3PcWUc-0
-            </Button>
-          </Box>
         </Box>
       </Center>
     </Container>
