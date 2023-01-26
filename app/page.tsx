@@ -82,7 +82,7 @@ export default function Home() {
                   overflow="auto"
                   whiteSpace="pre-wrap"
                 >
-                  Design Figma Here
+                  Figma Design Here
                 </Button>
                 <Button
                   type="submit"
