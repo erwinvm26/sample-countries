@@ -38,7 +38,10 @@ export default function Home() {
             Countries
           </Text>
           <Card
-            width="100%"
+            width={{
+              base: '100%',
+              md: '497px'
+            }}
             maxWidth="494px"
             height="446px"
             border="1px solid #E1E3E6"
